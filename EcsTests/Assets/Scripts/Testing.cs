@@ -9,7 +9,9 @@ public class Testing : MonoBehaviour
     private void Start()
     {
         var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        entityManager.CreateEntity();
+        
+        var entity = entityManager.CreateEntity(typeof(LevelComponent));
+        entityManager.SetComponentData(entity, new LevelComponent { level = 10 });
     }
 
     // Update is called once per frame
